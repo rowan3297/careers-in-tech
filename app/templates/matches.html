@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<a id="link-home" href="{{ url_for('home') }}"><span class="oi oi-home"></span></a>
+{% endblock %}
+
+{% block content %}
+<div id="input-soft-skills">
+	<h2>Top roles based on your strengths</h2>
+	{% for match in matches %}
+	<div class="card">
+		<div class="card-header">
+			<h3>{{ match.title }}</h3>
+		</div>
+		<div class="card-body">
+			<!-- #TODO: actually implement descriptions -->
+			{% if match.description %}
+				<p>{{ match.description }}</p>
+				<p>Skills associated with this job:</p>
+				<div class="container-fluid">
+					{% for skill in match.skills[:10] %}
+					<span class="badge badge-pill badge-dark">{{ skill }}</span>
+					{% endfor %}
+				</div>
+				<a href="{{ match.url }}" class="btn btn-primary float-right">More &raquo;</a>
+			{% else %}
+				<p>Skills associated with this job:</p>
+				<div class="container-fluid">
+					{% for skill in match.skills[:10] %}
+					<span class="badge badge-pill badge-dark">{{ skill }}</span>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+
+

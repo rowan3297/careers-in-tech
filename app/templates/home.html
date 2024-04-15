@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="container" id="homepage-content">
+	<h2>Discover roles in digital</h2>
+	<div class="row">
+		<a class="btn btn-primary" href="{{ url_for('skills_profile') }}">Get started</a>
+	</div>
+	<div class="row">
+		<a class="btn btn-secondary" href="{{ url_for('about') }}">Learn more</a>
+	</div>
+</div>
+{% endblock %}
+
+

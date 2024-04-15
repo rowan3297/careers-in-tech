@@ -1,0 +1,22 @@
+version: '3'
+services:
+    app:
+        build: .
+        command: python -u run.py
+        ports:
+            - 5000:5000
+        volumes:
+            - .:/app
+        links:
+            - mongodb
+        environment:
+            MONGODB_DATABASE: skills_incubator
+            MONGODB_HOSTNAME: mongodb
+        depends_on:
+            - mongodb
+        container_name: skills-incubator-flask
+    mongodb:
+        image: mongo:latest
+        ports:
+            - 27017:27017
+        container_name: skills-incubator-mongo

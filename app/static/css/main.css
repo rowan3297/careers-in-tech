@@ -1,0 +1,233 @@
+* { margin: 0; padding: 0;} /* remove default margin and padding */
+
+/* >>>>>>>> GENERIC PAGE STYLES START */
+
+body {
+  font-size: 18px;
+  font-family: 'Montserrat', arial, sans-serif;
+  background: #0E2234;
+  color: #0E2234;
+}
+
+h1 {
+  font-family: 'Work Sans', cursive, sans-serif;
+  font-size: 100%;
+  margin: 1em 0 0.5em;
+  color: #FFF;
+}
+
+h2 {
+  color: #FFF;
+  font-size: 250%;
+  font-weight: bold;
+  font-family: 'Work Sans', cursive, sans-serif;
+  text-align: center;
+  margin: 0.75em 0 1em;
+}
+
+h3 {
+  font-weight: bold;
+  font-family: 'Work Sans', cursive, sans-serif;
+}
+	
+
+a {
+  color: #dd3c65;
+}
+
+span.oi {
+	color: #dd3c65;
+}
+
+#link-home span.oi {
+	top: 0.5em;
+	font-size: 200%;
+}
+
+header {
+  clear: left;
+  text-align: center;
+  padding: 0 0 1em;
+  font-size: 150%;
+}
+
+nav {
+  background: #d8001a;
+  padding: 15px 10px 5px;
+  width: 100%;
+}
+
+nav ul li a {
+  color: #FFF;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+  color: #EC9440;
+}
+
+.navbar-toggler {
+  border: 2px solid #FFF;
+  color: #fff;
+  font-size: 150%;
+  padding: 12px;
+}
+
+section {
+  padding: 40px 10px;
+  text-align: center;
+}
+
+section h3 {
+  font-size: 150%;
+  font-family: 'Slabo 27px', sans-serif;
+}
+
+section .row {
+  margin-bottom: 20px;
+}
+
+section .container img {
+  width: 100%;
+}
+
+.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  border-radius: 12px;
+  color: #FFF;  
+  padding-top: 3px;
+  background: #38771F;
+}
+
+div.cost i.budget {
+  background: #38771F;
+}
+div.cost i.reasonable {
+  background: #EC9440;
+}
+div.cost i.pricy {
+  background: #d8001a;
+}
+
+ul.tags li {
+  font-size: 65%;
+  list-style-type: none;
+  display: inline;
+  background: #78b370;
+  border: 1px solid #3B771F;
+  color: #FFF;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+footer {
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+footer img {
+	width: 300px;
+	height: auto;
+}
+
+/* <<<<<<<<< GENERIC PAGE STYLES END */
+
+/* >>>>>>>>> SKILLS PROFILE STYLES START */
+
+.card {
+	max-width: 100%;
+	margin-bottom: 0.5em;
+	border: 4px solid #dd3c65;
+	border-radius: 1.5rem;
+}
+
+.card-header {
+	background: none;
+	border-bottom: 4px solid #dd3c65;
+	color: #0e2234;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.btn, .btn-primary {
+	border: .25rem solid #dd3c65;
+	color: #0e2234;
+	font-family: 'Work Sans', sans-serif;
+	background: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 120%;
+	border-radius: 1.5rem;
+}
+
+.btn:hover {
+	background: #dd3c65;
+	border: .25rem solid #dd3c65;
+}
+
+#SkillsForm {
+	text-align: center;
+}
+
+#SkillsForm .btn {
+	margin-top: 0.5em;
+}
+
+#SkillsForm label {
+	float: left;
+	color: #0e2234;
+	font-weight: bold;
+	margin-top: 0.4em;
+}
+
+#SkillsForm input {
+	clear: both;
+	margin-bottom: 0.2em;
+}
+
+/* <<<<<<<<< SKILLS PROFILE STYLES END */
+
+/* >>>>>>>>> MATCHES PAGE STYLES START */
+
+.badge-dark{
+	background-color: #0e2234;
+	padding: 4px 8px 5px;
+}
+
+/* <<<<<<<<< MATCHES PAGE STYLES END */
+
+/* >>>>>>>>> HOME PAGE STYLES START */
+
+#homepage-content .row {
+	text-align: center;
+	color: #fff;
+}
+
+#homepage-content h3 {
+	float: none;
+	display: block;
+	width: 100%;
+	text-align: left;
+}
+
+#homepage-content p {
+	text-align: left;
+}
+
+p.lrg {
+	font-size: 110%;
+}
+
+#homepage-content .btn {
+	margin: 0.5em auto;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+#homepage-content .btn-secondary {
+}

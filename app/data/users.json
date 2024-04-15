@@ -1,0 +1,59 @@
+[
+	{
+		"username": "billybob",
+		"email": "",
+		"password": "",
+		"soft_skills": {
+			"keen_to_learn": 10,
+			"organisation": 6,
+			"collaboration": 7,
+			"numeracy": 3,
+			"communication": 6,
+			"literacy": 4,
+			"leadership": 5,
+			"emotional_intelligence": 6,
+			"analytical": 5
+		},
+		"hard_skills": {
+			"python": 6,
+			"HTML": 5,
+			"PHP": 2,
+			"SQL": 4,
+			"MVC": 2
+		}
+	},
+	{
+		"username": "simplesim",
+		"email": "",
+		"password": "",
+		"soft_skills": {
+			"analytical": 10,
+			"literacy": 6,
+			"self-management": 7
+		},
+		"hard_skills": {
+			"deployment": 6,
+			"CI": 5,
+			"SQL": 2,
+			"databases": 4
+		}
+	},
+	{
+		"username": "sallyann",
+		"email": "",
+		"password": "",
+		"soft_skills": {
+			"communication": 10,
+			"numeracy": 3,
+			"literacy": 4,
+			"collaboration": 7
+		},
+		"hard_skills": {
+			"agile": 6,
+			"python": 4,
+			"PHP": 2,
+			"JavaScript": 4,
+			"databases": 4
+		}
+	}
+]

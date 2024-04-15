@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<a id="link-home" href="{{ url_for('home') }}"><span class="oi oi-home"></span></a>
+{% endblock %}
+
+{% block content %}
+<div class="container" id="homepage-content">
+	<h2>What is this?</h2>
+	<div class="row">
+		<p class='lrg'>This tool will help you discover roles in tech based on your soft skillset.</p>
+		<h3>Why soft skills?</h3>
+		<p>You may be surprised to learn of the very high value tech employers place on soft skills and other personal qualities. In fact, soft skills are at least as important as the 'hard' technical skills more readily associated with jobs in tech.</p>
+		<h3>Who is this for?</h3>
+		<p>This tool is aimed at college and university students, and anyone else considering a career in tech. It may be confusing and discouraging to explore potential roles based on technical competencies alone, especially when you're just starting out and the technology is constantly evolving. With this tool you can uncover roles which may suit you at a more fundamental level. Of course, new roles are emerging all the time, but this should give you a glimpse of the diverse roles on offer.</p>
+		<h3>About the creators</h3>
+		<p>Staff at Leeds Trinity University have created this tool, mainly for use by students.</p>
+		<p>The tool was created using data published by <a href="http://leeds.tech">Leeds Tech Jobs</a>, hence the roles which appear have all been recruited for in the Leeds region within the past 12 months.</p>
+	</div>
+	<div class="row">
+		<a class="btn btn-primary" href="{{ url_for('skills_profile') }}">Get started</a>
+	</div>
+</div>
+{% endblock %}
+
+
