@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<a id="link-home" href="{{ url_for('home') }}"><span class="oi oi-home"></span></a>
+{% endblock %}
+
+{% block content %}
+<div class="container" id="homepage-content">
+	<h2>Do you require assistance?</h2>
+	<div class="row">
+		<h3>You can contact us using the methods provided:</h3>
+		
+	</div>
+    <div class="row">
+        <div class="container">
+          <img src="{{ url_for('static', filename='images/telephone.png') }}" alt="call icon" class="call-img">
+          <p>Call us on 0113 283 7100</p>
+        </div>
+        <div class="container">
+          <img src="{{ url_for('static', filename='images/gmail.png') }}"  alt="email icon" class="email-img">
+          <a href="mailto:enquiries@leedstrinity.ac.uk">
+            <p>Email us at enquiries@leedstrinity.ac.uk</p>
+
+          </a>
+        </div>
+      </div>    
+	
+</div>
+ 
+{% endblock %}

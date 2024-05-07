@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<a id="link-home" href="{{ url_for('home') }}"><span class="oi oi-home"></span></a>
+{% endblock %}
+
+{% block content %}
+<div class="container" id="homepage-content">
+	<h2>FREQUENTLY ASKED QUESTIONS.</h2>
+	<div class="row">
+		<h3>TOP 10 FREQUENTLY ASKED QUESTIONS:</h3>
+        <ol>
+            <li><strong>QUESTION:</strong> I want to pursue a career in tech but I fear i might be old as I have reached retirement age, is there an age limit?</li>
+            <ul><STRONG>ANSWER:</STRONG> There is no age limit for pursuing a career in tech. As long as you bring diversity to the table and a strong pursuit for tech, you can achieve a career in this field.</ul><br>
+
+            <li><strong>QUESTION:</strong> I am a woman and I want to pursue a career in tech, is it possible?</li>
+            <ul><STRONG>ANSWER:</STRONG> Yes, it is possible. There are no gender restrictions to pursue a career in tech.</ul><br>
+
+            <li><strong>QUESTION:</strong> Is it possible to secure a Software Developer Role without a qualifying degree?</li>
+            <ul><strong>ANSWER:</strong> Yes, it is possible. There are no qualifications required to secure certain Software Developer Roles, as experience can be just as good.</ul><br>
+
+            <li><strong>QUESTION:</strong> I am a member of the LGBTQ+ community, can I still pursue a career in tech?</li>
+            <ul><strong>ANSWER:</strong> Yes, you can still pursue a career in tech as a member of the LGBTQ+ community. The tech industry is committed to diversity and inclusion, and there are many resources and organizations available to support LGBTQ+ individuals in tech.</ul><br>
+
+            <li><strong>QUESTION:</strong> I am a parent, can I still pursue a career in tech?</li>
+            <ul><strong>ANSWER:</strong> Yes, you can still pursue a career in tech as a parent. Many tech companies offer flexible work arrangements and benefits to support working parents, and there are many resources available to help balance work and family responsibilities.</ul><br>
+
+            <li><strong>QUESTION:</strong>  I am a veteran, can I still pursue a career in tech?</li>
+            <ul><strong>ANSWER:</strong> Yes, you can still pursue a career in tech as a veteran. Many tech companies value the skills and experience that veterans bring to the table, and there are many resources and programs available to support veterans in their transition to the tech industry.</ul><br>
+
+            <li><strong>QUESTION:</strong>  I have a disability, can I still pursue a career in tech?</li>
+            <ul><strong>ANSWER:</strong> Yes, you can still pursue a career in tech with a disability. The tech industry is committed to accessibility and inclusion, and there are many resources and accommodations available to support individuals with disabilities.</ul><br>
+
+            <li><strong>QUESTION:</strong>  I am a person of color, can I still pursue a career in tech?</li>
+            <ul><strong>ANSWER;</strong>  Yes, there is a place for everyone in the tech industry, regardless of race or ethnicity. The tech industry is actively working to increase diversity and inclusion, and there are many resources and organizations available to support underrepresented groups in tech.</ul><br>
+
+            <li><strong>QUESTION:</strong> I have a degree in a non-tech field, can I still pursue a career in tech?</li>
+            <ul><strong>ANSWER:</strong> Yes, you can still pursue a career in tech with a degree in a non-tech field. Many tech companies value diverse backgrounds and experiences, and there are many roles in tech that don't require a technical degree.</ul><br>
+
+            <li><strong>QUESTION:</strong> I am a high school student, can I still pursue a career in tech?</li>
+            <ul><strong>ANSWER:</strong> Yes, you can still pursue a career in tech as a high school student. There are many resources available to learn programming and other tech skills, such as online courses, coding bootcamps, and after-school programs. Additionally, some tech companies offer internships or apprenticeships for high school students.</ul><br>
+
+        </ol>
+		   
+	
+</div>
+
+<h2>Ask a question</h2>
+<div><p>fill out your question and email, and we will get back shortly.</p>
+</div>
+
+
+<form action="/submit-question" method="post">
+    <div class="form-group">
+        <label for="question">Question:</label>
+        <input type="text" class="form-control" id="question" name="Enter your question" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+ 
+{% endblock %}
