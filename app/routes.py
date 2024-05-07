@@ -19,6 +19,18 @@ def about():
     """
     return render_template('about.html', page_name="About")
 
+@app.route('/contact')
+def contact():
+    """ route for the contact view
+    """
+    return render_template('contact.html', page_name="Contact")
+
+@app.route('/faqs')
+def faqs():
+    """ route for the faqs view
+    """
+    return render_template('faqs.html', page_name="FAQ's")
+
 @app.route('/myskills', methods=['GET', 'POST'])
 def skills_profile():
     """ route for entering soft skills
