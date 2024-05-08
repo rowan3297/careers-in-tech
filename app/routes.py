@@ -70,3 +70,9 @@ def matches():
         return render_template('matches.html', page_name='My Matches', matches=data) 
     else:
         return redirect(url_for('skills_profile'))
+    
+@app.route('/job-information')
+def job_information():
+    """Route to display further information about the clicked on job on the matches page"""
+
+    return render_template('job.html')
