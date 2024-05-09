@@ -4,6 +4,7 @@ from wtforms.fields.html5 import IntegerRangeField
 from .forms import SkillsForm
 from .helpers import get_soft_skills_data, format_anon_user, get_role, format_skills
 import recommender.recommender as rc
+import job_info.job_descriptions as jd
 #import serpstack as ss
 #from app import mongo
 
@@ -71,8 +72,12 @@ def matches():
     else:
         return redirect(url_for('skills_profile'))
     
-@app.route('/job-information')
-def job_information():
+@app.route('/job-info')
+def job_info(job):
     """Route to display further information about the clicked on job on the matches page"""
 
-    return render_template('job.html')
+    job = job.capitalize()
+
+    job_desc = jd.scrape_description(job)
+
+    return render_template('job.html',page_name = 'Job Information',job = job_desc)
