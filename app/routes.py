@@ -68,22 +68,32 @@ def matches():
             role = get_role(match)
             skills = format_skills( rc.get_skills(G, match) )
             data.append({"title": match, "description": role['snippet'], "skills": skills, "url": role['Url']})
+            print(role['Url'],None)
         # send match data to template
         return render_template('matches.html', page_name='My Matches', matches=data) 
     else:
         return redirect(url_for('skills_profile'))
     
-@app.route('/job-info')
+# @app.route('/job-info')
+# def job_info():
+#     """Route to display further information about the clicked on job on the matches page"""
+
+#     job_link = request.args.get('job_link',None)
+
+#     job_desc = jd.scrape_description(job_link)
+#     print(job_link, file=sys.stdout)
+#     if job_desc == None:
+#         return redirect(url_for('matches'))
+#     else:
+#         return render_template('job.html',page_name = 'Job Information',job = job_desc)
+
+@app.route("/job-info")
 def job_info():
-    """Route to display further information about the clicked on job on the matches page"""
 
-    job = request.args.get('job',None)
-    job = job.lower()
-    job = job.capitalize()
+    job_link = request.args.get('job_link',None)
 
-    print(job, file=sys.stdout)
+    job_desc = jd.scrape_description(job_link)
 
-    job_desc = jd.scrape_description(job)
     if job_desc == None:
         return redirect(url_for('matches'))
     else:

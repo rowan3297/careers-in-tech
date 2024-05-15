@@ -1,34 +1,38 @@
 import requests
 from bs4 import BeautifulSoup
 
-def scrape_description(job):
+def scrape_description(job_link):
 
-    url = "https://www.prospects.ac.uk/job-profiles/browse-a-to-z"
-    base_url = "https://www.prospects.ac.uk"
-    # url = 'https://www.totaljobs.com/advice/software-developer-job-description'
 
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, "html.parser")
+    if "prospects" in str(job_link):
+        ##If it is a prospects.ac link
 
-    new_url=1
+        new_page = requests.get(job_link)
+        new_soup = BeautifulSoup(new_page.content, 'html.parser')
+                
+        ##Finds the job description from within the given pages parsed html
 
-    ## Returns the link for a given job where the job title must be in the form "Aaaa... aaaaaa..."
-    for a in soup.findAll('a',href=True):
-        if job in a.text:
-            new_url = base_url+ a["href"]
+        for page_content in new_soup.findAll('div',class_='content'):
+            job_descriptionRaw = list(page_content.children)[1]
+            job_description = job_descriptionRaw.getText()
 
-    if new_url == 1:
-        return None
+        return job_description
 
-    new_page = requests.get(new_url)
-    new_soup = BeautifulSoup(new_page.content, 'html.parser')
-            
-    ##Finds the job description from within the given pages parsed html
 
-    for page_content in new_soup.findAll('div',class_='content'):
-        job_descriptionRaw = list(page_content.children)[1]
-        job_description = job_descriptionRaw.getText()
+    else:
+        job_description = ""
 
-    return job_description
+        page = requests.get(job_link)
+        soup = BeautifulSoup(page.content, 'html.parser')
+
+        content = soup.findAll("p")
+        # print(content[1:3])
+        for i in content[1:3]:
+            job_description += i.getText()
+            job_description += " "
+
+        return job_description
+
+
 
 ## Use something like getRoleId in the python helpers file to figure out what job has been clicked on?
