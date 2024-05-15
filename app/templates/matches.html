@@ -22,7 +22,7 @@
 					<span class="badge badge-pill badge-dark">{{ skill }}</span>
 					{% endfor %}
 				</div>
-				<a href="{{ url_for(job_info,job=match.title) }}" class="btn btn-primary float-right">More &raquo;</a>
+				<a href="{{ url_for('job_info', job = match.title) }}" class="btn btn-primary float-right">More &raquo;</a>
 			{% else %}
 				<p>Skills associated with this job:</p>
 				<div class="container-fluid">

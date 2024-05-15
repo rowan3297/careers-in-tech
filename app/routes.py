@@ -1,10 +1,11 @@
-from flask import Flask, url_for, render_template, request, redirect, session
+from flask import Flask, url_for, render_template, request, redirect, session, request
 from app import app
 from wtforms.fields.html5 import IntegerRangeField
 from .forms import SkillsForm
 from .helpers import get_soft_skills_data, format_anon_user, get_role, format_skills
 import recommender.recommender as rc
 import job_info.job_descriptions as jd
+import sys
 #import serpstack as ss
 #from app import mongo
 
@@ -73,11 +74,17 @@ def matches():
         return redirect(url_for('skills_profile'))
     
 @app.route('/job-info')
-def job_info(job):
+def job_info():
     """Route to display further information about the clicked on job on the matches page"""
 
+    job = request.args.get('job',None)
+    job = job.lower()
     job = job.capitalize()
 
-    job_desc = jd.scrape_description(job)
+    print(job, file=sys.stdout)
 
-    return render_template('job.html',page_name = 'Job Information',job = job_desc)
+    job_desc = jd.scrape_description(job)
+    if job_desc == None:
+        return redirect(url_for('matches'))
+    else:
+        return render_template('job.html',page_name = 'Job Information',job = job_desc)

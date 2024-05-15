@@ -10,14 +10,18 @@ def scrape_description(job):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
 
+    new_url=1
 
     ## Returns the link for a given job where the job title must be in the form "Aaaa... aaaaaa..."
     for a in soup.findAll('a',href=True):
         if job in a.text:
             new_url = base_url+ a["href"]
 
+    if new_url == 1:
+        return None
+
     new_page = requests.get(new_url)
-    new_soup = BeautifulSoup(new_page,'html.parser')
+    new_soup = BeautifulSoup(new_page.content, 'html.parser')
             
     ##Finds the job description from within the given pages parsed html
 
