@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<a id="link-home" href="{{ url_for('home') }}"><span class="oi oi-home"></span></a>
+{% endblock %}
+
+{% block content %}
+<div class="container" id="homepage-content">
+	<h2>FREQUENTLY ASKED QUESTIONS.</h2>
+	<div class="row">
+		<h3>TOP 10 FREQUENTLY ASKED QUESTIONS:</h3>
+
+		
+		<div class="container" id="faqContainer">
+			<script>
+				
+				fetch('/api/faqs')
+					.then(response => response.json())
+					.then(data => {
+						
+						const faqContainer = document.getElementById('faqContainer');
+
+						
+						data.forEach(faq => {
+							const faqDiv = document.createElement('div');
+							faqDiv.className = 'faq';
+
+							
+							const question = document.createElement('div');
+							question.className = 'question';
+							question.innerText = faq.question;
+
+							
+							const answer = document.createElement('div');
+							answer.className = 'answer';
+							answer.innerText = faq.answer;
+
+							
+							faqDiv.append(question, answer);
+
+							
+							faqContainer.append(faqDiv);
+						});
+					})
+					.catch(error => {
+						// Log any errors that occur while fetching the FAQ data
+						console.error('Error fetching faqs', error);
+					});
+			</script>
+		</div>
+		
+	</div>
+</div>
+{% endblock %}
