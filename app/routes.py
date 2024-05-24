@@ -4,7 +4,8 @@ from wtforms.fields.html5 import IntegerRangeField
 from .forms import SkillsForm
 from .helpers import get_soft_skills_data, format_anon_user, get_role, format_skills
 import recommender.recommender as rc
-import job_info.job_descriptions as jd
+import job_info.job_descriptions as get_job_desc
+import job_info.job_skills as get_job_skills
 import sys
 #import serpstack as ss
 #from app import mongo
@@ -94,11 +95,11 @@ def results():
 @app.route("/job-info")
 def job_info():
 
-    job_link = request.args.get('job_link',None)
-
-    job_desc = jd.scrape_description(job_link)
+    job = request.args.get('job',None)
+    job_desc = get_job_desc.scrape_description(job["url"])
+    skills_text = get_job_skills.scrape_skills(job["url"])
 
     if job_desc == None:
         return redirect(url_for('matches'))
     else:
-        return render_template('job.html',page_name = 'Job Information',job = job_desc)
+        return render_template('job.html',page_name = 'Job Information',job_description = job_desc, job_title=job["title"],skills=skills_text)
