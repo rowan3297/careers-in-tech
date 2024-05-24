@@ -1,27 +1,508 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Range slider with click area and animations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block header %}
-<a id="link-home" href="{{ url_for('home') }}"><span class="oi oi-home"></span></a>
-{% endblock %}
+<style>
+.CONTAINER { max-width: 768px; padding: 10px 0; width: 90%; margin: 40px auto; }
+</style><link rel="stylesheet" href="../static/css/style3.css">
 
-{% block content %}
-<h2>Your soft skills profile</h2>
+</head>
+<body>
+    <a href="{{ url_for('home') }}">
+        <button class="back-button">&lt;</button>
+    </a>
+    <h2 class="soft-title">Your soft skills profile</h2>
+<!-- partial:index.partial.html -->
 <div class="card">
-	<h5 class="card-header">Which of the following describes you?</h5>
-	<div class="card-body">
-		<form id="SkillsForm" method="POST" action="{{ url_for('skills_profile') }}">
-			{{ form.csrf_token }}
-			{{ form.hidden_tag() }}
-			{% for field in form %}
-				{% if field.type == 'IntegerRangeField' %}
-				{{ field.label }}
-					{{ field(min=0, max=10, step=1, class_="custom-range") }}
-				{% endif %}
-			{% endfor %}
-			{{ form.submit(class_="btn btn-primary") }}
-		</form>
-	</div>
+    <h5 class="card-header">Which of the following describes you?</h5>
+    <div class="card-body">
+
+    
+        <div class="CONTAINER">
+
+<!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider">
+        <div class="header">
+            <div class="RangeSlider_ParticipantName">Love learning new things</div>
+            <div class="absCenter">
+                <button class="infoButton">
+                    <div class="infoButton-btn">
+                        <span class="infoButton-btn-text">i</span>
+                    </div>
+                    <div class="infoButton-container">
+                        <div class="infoButton-container-message">Your passion to research and discover new things. 10 is very passionate and wanting to learn new things, 0 is not very interested.</div>
+                    </div>
+                </button>
+            </div>
+        </div>  
+        <div class="RangeSlider_ClickArea">
+            <div class="RangeSlider_Track">
+            <div class="RangeSlider_TrackFill">
+                <div class="RangeSlider_Thumb"></div>
+            </div>
+            </div><!-- /.RangeSlider_Track -->
+            <div class="RangeSlider_Points">
+            <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+            <div class="RangeSlider_Point">1</div>
+            <div class="RangeSlider_Point">2</div>
+            <div class="RangeSlider_Point">3</div>
+            <div class="RangeSlider_Point">4</div>
+            <div class="RangeSlider_Point">5</div>
+            <div class="RangeSlider_Point">6</div>
+            <div class="RangeSlider_Point">7</div>
+            <div class="RangeSlider_Point">8</div>
+            <div class="RangeSlider_Point">9</div>
+            <div class="RangeSlider_Point">10</div>
+            </div><!-- /.RangeSlider_Points -->
+        </div><!-- /.RangeSlider_ClickArea -->
+        </div><!-- /.RangeSlider -->
+        
+        <!-- second range slider -->
+        <div class="RangeSlider" id="RangeSlider2">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName change">Enthusiastic and motivated</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message change">How driven you are to complete a task and how work driven you are. 10 being very enthusiastic, 0 being not enthusiastic at all.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+        <div class="RangeSlider_ClickArea">
+            <div class="RangeSlider_Track">
+            <div class="RangeSlider_TrackFill">
+                <div class="RangeSlider_Thumb"></div>
+            </div>
+            </div><!-- /.RangeSlider_Track -->
+            <div class="RangeSlider_Points">
+            <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+            <div class="RangeSlider_Point">1</div>
+            <div class="RangeSlider_Point">2</div>
+            <div class="RangeSlider_Point">3</div>
+            <div class="RangeSlider_Point">4</div>
+            <div class="RangeSlider_Point">5</div>
+            <div class="RangeSlider_Point">6</div>
+            <div class="RangeSlider_Point">7</div>
+            <div class="RangeSlider_Point">8</div>
+            <div class="RangeSlider_Point">9</div>
+            <div class="RangeSlider_Point">10</div>
+            </div><!-- /.RangeSlider_Points -->
+        </div><!-- /.RangeSlider_ClickArea -->
+        </div><!-- /.RangeSlider -->
+
+        <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider3">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Good Communicator</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">How effective you are at communicating with peers such as collegues, users, shareholders, etc. 10 being very confident in communication, 0 being no skills in communication.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider4">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Good at Writing</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">How good you are at writing professional documents such as emails and documentation. 10 is very proficient at writing, 0 is not proficient at all in writing.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider5">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Works Well with Others</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">How well you work with peers like fellow coders, managers, users, etc. 10 means works very well with others, 0 means doesn't work well with others.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider6">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Confident Decision Maker</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">How well you interpret and resolve decisions. 10 is a confident decision maker, 0 is a weak decision maker.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider7">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Analytical</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">Relating to or using analysis or logical reasoning. 10 is very analytical, 0 is not analytical.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider8">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Good with Numbers</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">How well you work with numerical problems of varying difficulty. 10 is very good with numbers, 0 is not very good with numbers.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider9">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Problem Solver</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">Finding solutions to difficult or complex issues. 10 is a very efficient problem solver, 1 is not very good problem solver.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider10">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Creative</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">Relating to or involving the use of the imagination or original ideas to create something. 10 is very creative, 0 is not creative.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider11">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Versatile and Multifaceted</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">Capable or adaptable to many different things competently. 10 is very versatile, 0 is not versatile.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider12">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Kind and Empathetic</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">Being friendly, generous, and considerate, and having the ability to imagine how someone else feels. 10 is very empathetic, 0 is not empathetic.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+            <!-- first range slider -->
+        <div class="RangeSlider" id="RangeSlider13">
+            <div class="header">
+                <div class="RangeSlider_ParticipantName">Organised</div>
+                <div class="absCenter">
+                    <button class="infoButton">
+                        <div class="infoButton-btn">
+                            <span class="infoButton-btn-text">i</span>
+                        </div>
+                        <div class="infoButton-container">
+                            <div class="infoButton-container-message">Arranged or structured in a systematic way. 10 is very organised, 0 is not organised.</div>
+                        </div>
+                    </button>
+                </div>
+            </div>  
+            <div class="RangeSlider_ClickArea">
+                <div class="RangeSlider_Track">
+                <div class="RangeSlider_TrackFill">
+                    <div class="RangeSlider_Thumb"></div>
+                </div>
+                </div><!-- /.RangeSlider_Track -->
+                <div class="RangeSlider_Points">
+                <div class="RangeSlider_Point RangeSlider_PointActive">0</div>
+                <div class="RangeSlider_Point">1</div>
+                <div class="RangeSlider_Point">2</div>
+                <div class="RangeSlider_Point">3</div>
+                <div class="RangeSlider_Point">4</div>
+                <div class="RangeSlider_Point">5</div>
+                <div class="RangeSlider_Point">6</div>
+                <div class="RangeSlider_Point">7</div>
+                <div class="RangeSlider_Point">8</div>
+                <div class="RangeSlider_Point">9</div>
+                <div class="RangeSlider_Point">10</div>
+                </div><!-- /.RangeSlider_Points -->
+            </div><!-- /.RangeSlider_ClickArea -->
+            </div><!-- /.RangeSlider -->
+        
+    </div>
 </div>
-{% endblock %}
 
+<button class="btn btn-secondary" onclick="storeSkillsAndRedirect()">Show Results</button>
+<a class="btn btn-primary" href="{{ url_for('matches') }}">Get Jobs</a>
+  
+</div><!-- /.CONTAINER -->
+<!-- partial -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="../static/js/script3.js"></script>
 
+</body>
+</html>

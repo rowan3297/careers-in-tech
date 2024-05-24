@@ -74,6 +74,10 @@ def matches():
     else:
         return redirect(url_for('skills_profile'))
     
+@app.route('/results.html')
+def results():
+    return render_template('results.html', page_name='Results')
+
 # @app.route('/job-info')
 # def job_info():
 #     """Route to display further information about the clicked on job on the matches page"""
