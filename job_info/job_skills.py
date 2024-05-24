@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def scrape_description(job_link):
+def scrape_skills(job_link):
 
 
     if "prospects" in str(job_link):

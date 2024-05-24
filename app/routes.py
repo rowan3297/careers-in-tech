@@ -92,8 +92,8 @@ def matches():
 def job_info():
 
     job = request.args.get('job',None)
-    job_desc = get_job_desc(job["url"])
-    skills_text = get_job_skills(job["url"])
+    job_desc = get_job_desc.scrape_description(job["url"])
+    skills_text = get_job_skills.scrape_skills(job["url"])
 
     if job_desc == None:
         return redirect(url_for('matches'))
