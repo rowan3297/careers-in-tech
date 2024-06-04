@@ -74,7 +74,23 @@ def matches():
         return render_template('matches.html', page_name='My Matches', matches=data) 
     else:
         return redirect(url_for('skills_profile'))
+    
+@app.route('/results.html')
+def results():
+    return render_template('results.html', page_name='Results')
 
+# @app.route('/job-info')
+# def job_info():
+#     """Route to display further information about the clicked on job on the matches page"""
+
+#     job_link = request.args.get('job_link',None)
+
+#     job_desc = jd.scrape_description(job_link)
+#     print(job_link, file=sys.stdout)
+#     if job_desc == None:
+#         return redirect(url_for('matches'))
+#     else:
+#         return render_template('job.html',page_name = 'Job Information',job = job_desc)
 
 @app.route("/job-info")
 def job_info():

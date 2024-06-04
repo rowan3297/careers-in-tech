@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<a id="link-home" href="{{ url_for('home') }}"><span class="oi oi-home"></span></a>
+{% endblock %}
+
+{% block content %}
+<h2>Your soft skills profile</h2>
+<div class="card">
+	<h5 class="card-header">Which of the following describes you?</h5>
+	<div class="card-body">
+		<form id="SkillsForm" method="POST" action="{{ url_for('skills_profile') }}">
+			{{ form.csrf_token }}
+			{{ form.hidden_tag() }}
+			{% for field in form %}
+				{% if field.type == 'IntegerRangeField' %}
+				{{ field.label }}
+					{{ field(min=0, max=10, step=1, class_="custom-range") }}
+				{% endif %}
+			{% endfor %}
+			{{ form.submit(class_="btn btn-primary") }}
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+

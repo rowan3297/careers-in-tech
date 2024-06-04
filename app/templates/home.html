@@ -1,18 +1,55 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Layout</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="banner">
+        <img src="../static/images/topBanner.png" alt="Banner Image">
+    </div>
+    
+    <div id="h-group">
+        <div id="main">
+            <div class="panel__inner">
+                <h1 id="main-section">Discover Roles in Digital</h1>
+                <p id="main-text">Complete a skills assessment and learn what roles in the digital field are compatable within your skill range and what to work on for other roles.</p>
+                <a href="{{ url_for('skills_profile') }}">
+                    <button class="button">Get Started</button>
+                </a>
+            </div>
+            
+        </div>
+    </div>
 
-{% block header %}
-{% endblock %}
+    <div id="sections">
+        <div class="section">
+            <h2 class="grid_main">Learn More</h2>
+            <p class="grid_intro">Find out more about skills assessment and what this service has to offer.</p>
+            <a href="{{ url_for('about') }}">
+                <button class="button">Learn More</button>
+            </a>
+        </div>
+        
+        <div class="section">
+            <h2 class="grid_main">Contact Us</h2>
+            <p class="grid_intro">Have any further queries, recommendations, or issues? Find the appropriate contacts and methods here.</p>
+            <a href="{{ url_for('contact') }}">
+                <button class="button">Contact Us</button>
+            </a>
+        </div>
+        
+        <div class="section">
+            <h2 class="grid_main">FAQ</h2>
+            <p class="grid_intro">Find frequently asked questions here to help with your usage of this service.</p>
+            <a href="{{ url_for('faqs') }}">
+                <button class="button">Go Now</button>
+            </a>
+        </div>
+    </div>
 
-{% block content %}
-<div class="container" id="homepage-content">
-	<h2>Discover roles in digital</h2>
-	<div class="row">
-		<a class="btn btn-primary" href="{{ url_for('skills_profile') }}">Get started</a>
-	</div>
-	<div class="row">
-		<a class="btn btn-secondary" href="{{ url_for('about') }}">Learn more</a>
-	</div>
-</div>
-{% endblock %}
-
-
+    <div class="banner">
+        <img src="../static/images/bottomBanner.png" alt="Banner Image">
+    </div>
+</body>
+</html>
