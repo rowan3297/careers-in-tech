@@ -8,20 +8,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/job.css') }}">
   </head>
   <body>
-    <h2 id="page-title">{{  job_title  }}</h2>
+    <h2 id="page-title">Job Information</h2>
 
-    <p class="card" id="description">{{ job_descripton }}</p>
+    <p class="card" id="description">{{ job_description }}</p>
 
     <div class="container">
 
       <p class="column card" id="skills-had">This is where skills you have for this job will go</p>
 
       <p class="column card" id="skills-needed">Skills Needed</p>
-      <ul id="skills-list">
-        {{% for skill in skills %}}
-        <li>{{ skill }}</li>
-        {{% endfor %}}
-      </ul>
+      
+      <!-- here -->
 
 
       <p class="column card" id="job-rating">This is where the job rating will go</p>

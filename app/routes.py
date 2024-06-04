@@ -74,28 +74,16 @@ def matches():
         return render_template('matches.html', page_name='My Matches', matches=data) 
     else:
         return redirect(url_for('skills_profile'))
-    
-# @app.route('/job-info')
-# def job_info():
-#     """Route to display further information about the clicked on job on the matches page"""
 
-#     job_link = request.args.get('job_link',None)
-
-#     job_desc = jd.scrape_description(job_link)
-#     print(job_link, file=sys.stdout)
-#     if job_desc == None:
-#         return redirect(url_for('matches'))
-#     else:
-#         return render_template('job.html',page_name = 'Job Information',job = job_desc)
 
 @app.route("/job-info")
 def job_info():
 
-    job = request.args.get('job',None)
-    job_desc = get_job_desc.scrape_description(job["url"])
-    skills_text = get_job_skills.scrape_skills(job["url"])
-
-    if job_desc == None:
-        return redirect(url_for('matches'))
+    jobUrl = request.args.get('job_link',None)
+    jobDesc = get_job_desc.scrape_description(jobUrl)
+    jobSkills = get_job_skills.scrape_skills(jobUrl)
+    if jobDesc == None or jobSkills == None:
+            return redirect(url_for('matches'))
     else:
-        return render_template('job.html',page_name = 'Job Information',job_description = job_desc, job_title=job["title"],skills=skills_text)
+        return render_template('job.html',job_description = jobDesc)
+        
