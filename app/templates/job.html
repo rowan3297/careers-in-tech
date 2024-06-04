@@ -15,9 +15,9 @@
     <div class="container">
 
       <p class="column card" id="skills-had">This is where skills you have for this job will go</p>
-
-      <p class="column card" id="skills-needed">Skills Needed</p>
-      
+      {% for skill in job_skills %}
+        <p class="column card" id="skills-needed">{{ skill }}</p>
+      {% endfor %}
       <!-- here -->
 
 

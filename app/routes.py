@@ -95,11 +95,13 @@ def results():
 @app.route("/job-info")
 def job_info():
 
-    jobUrl = request.args.get('job_link',None)
-    jobDesc = get_job_desc.scrape_description(jobUrl)
-    jobSkills = get_job_skills.scrape_skills(jobUrl)
-    if jobDesc == None or jobSkills == None:
-            return redirect(url_for('matches'))
+    job_link = request.args.get('job_link',None)
+
+    job_desc = get_job_desc.scrape_description(job_link)
+    jskills = get_job_skills.scrape_skills(job_link)
+
+    if job_desc == None or jskills == None:
+        return redirect(url_for('matches'))
     else:
-        return render_template('job.html',job_description = jobDesc)
+        return render_template('job.html',page_name = 'Job Information',job_description = job_desc,job_skills = jskills)
         
